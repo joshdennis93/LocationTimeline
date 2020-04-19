@@ -1,0 +1,59 @@
+<aura:component>
+    <aura:attribute name="activity" type="object" description="to store single activity (task/event) record data"/>
+    <li>
+        <div class="isExpendable slds-timeline__item_expandable slds-timeline__item_task" aura:id="expId">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <button class="slds-button slds-button_icon" onclick="{!c.toggleActivity}" title="test"
+                            aria-controls="task-item-base">
+                        <lightning:icon iconName="utility:switch"
+                                        size="x-small"
+                                        class="slds-button__icon slds-timeline__details-action-icon"/>
+                    </button>
+                    <div class="slds-icon_container" title="task">
+                        <lightning:icon iconName="standard:task" size="small"/>
+                    </div>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                        <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                            <h3 class="slds-truncate" title="{!v.activity.Street__c}"> <!-- change this to whatever title is needed -->
+                                <strong>{!v.activity.Name}</strong> <!-- change this to whatever title is needed -->
+                            </h3>
+                        </div>
+                    </div>
+                    <p class="slds-m-horizontal_xx-small">
+                        Visited <i>{!v.activity.Street__c}, {!v.activity.Suburb__c}</i> at <lightning:formattedDateTime value="{!v.activity.DateRecorded__c}" hour="2-digit" minute="2-digit" year="numeric" month="numeric" day="numeric"/> <!--change this to the date value -->
+                    </p>
+                    <!-- expandable section start -->
+                    <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small" id="task-item-base" aria-hidden="true">
+                        <ul class="slds-list_horizontal slds-wrap">
+                            <li class="slds-grid slds-grid_vertical slds-size_1-of-1 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">Address</span>
+                                <span class="slds-text-body_medium slds-truncate" title="{!v.activity.Country__c}">{!v.activity.Street__c}, {!v.activity.City__c}</span>
+                                <span class="slds-text-body_medium slds-truncate" title="{!v.activity.Country__c}">{!v.activity.State__c}, {!v.activity.Postcode__c}</span>
+                            </li>
+                            <li class="slds-grid slds-grid_vertical slds-size_1-of-1 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">Description</span>
+                                <span class="slds-text-body_medium slds-truncate" title="{!v.activity.Country__c}">{!v.activity.Description__c}</span>
+                            </li>
+                            <!--  FLEX FIELDS
+                                 <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">City</span>
+                                <span class="slds-text-body_medium slds-truncate" title="{!v.activity.Description}">{!v.activity.Description}</span>
+                            </li>
+                            <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">Related To</span>
+                                <span class="slds-text-body_medium slds-truncate" title="{!v.activity.Who.Name}">{!v.activity.Who.Name}</span>
+                            </li>
+                            <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">Status</span>
+                                <span class="slds-text-body_medium slds-truncate" title="{!v.activity.Status}">{!v.activity.Status}</span>
+                            </li>  -->
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </li>
+</aura:component>

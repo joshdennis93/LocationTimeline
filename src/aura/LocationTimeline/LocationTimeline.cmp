@@ -1,0 +1,54 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global"
+                controller="AccountListController">
+    <aura:attribute name="lstActivity" type="list" />
+    <aura:attribute name="markers" type="Object[]" />
+    <aura:attribute type="Location[]" name="listLoc" />
+    <aura:attribute name="mycolumns" type="List" />
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="viewNewRecordForm" type="Boolean" default="false" />
+    <aura:attribute name="headerTitle" type="Aura.Component[]">
+        <h2>
+            <b>Patient's Locations</b>
+        </h2>
+    </aura:attribute>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <!-- to build more:
+      x 'add new location' button using lightningrecordedit & card params
+        padding around the map to make it more nice
+        scroll bar on addresses
+        clickable names
+    -->
+
+    <lightning:card title="{!v.headerTitle}" iconName="standard:entity_milestone" class="slds-card_boundary">
+        <aura:set attribute="actions">
+            <lightning:button label="New Location" onclick="{!c.newLocClick}"/>
+            <!-- <lightning:button label="Create Location" variant="brand" onclick="{!c.createLocation}" /> -->
+        </aura:set>
+        <lightning:layout>
+            <lightning:layoutItem size="9">
+                <div class="slds-grid slds-grid_vertical slds-p-around_x-small">
+                    <div class="slds-col">
+                        <lightning:map mapMarkers="{! v.markers }" listView="hidden"/>
+                    </div>
+                </div>
+            </lightning:layoutItem>
+
+            <lightning:layoutItem size="3">
+                <ul class="slds-timeline">
+                    <aura:iteration items="{!v.lstActivity}" var="task">
+                        <c:childActivity activity="{!task}"/>
+                    </aura:iteration>
+                </ul>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+
+    <!-- <aura:if isTrue="{!v.viewNewRecordForm}">
+        <c:NewLocationForm parentId="{!v.recordId}" />
+    </aura:if> -->
+</aura:component>
