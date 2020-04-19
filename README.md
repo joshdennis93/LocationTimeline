@@ -11,6 +11,6 @@ Note: 'Address__c' object is included as example and isn't strictly needed.
 4. Add to lightning page via Lightning App Builder.
 
 ## Examples
-![image1]./images/image1.png
+![image1](/images/image1.png)
 
-![image2]./images/image2.png
+![image2](/images/image2.png)
