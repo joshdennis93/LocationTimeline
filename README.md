@@ -14,3 +14,11 @@ Note: 'Address__c' object is included as example and isn't strictly needed.
 ![image1](/images/image1.png)
 
 ![image2](/images/image2.png)
+
+## Use cases
+- Track movement of entities on a map (e.g. in COVID-19 use case, identifying locations an infected patient may have visited)
+- Visualise plan for sales/service/deliveries (e.g. view a salesperson's travels on a given day by querying for all Work Orders/Opportunities/Events on a given day)
+- Identify shipments/logistics (e.g. if a ship carrying coal is going to dock at 3 ports over 14 days, seeing its current location v.s. future docking locations)
+
+## E2E example
+![E2E demo](/images/E2E demo.gif)
