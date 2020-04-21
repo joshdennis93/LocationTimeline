@@ -20,5 +20,5 @@ Note: 'Address__c' object is included as example and isn't strictly needed.
 - Visualise plan for sales/service/deliveries (e.g. view a salesperson's travels on a given day by querying for all Work Orders/Opportunities/Events on a given day)
 - Identify shipments/logistics (e.g. if a ship carrying coal is going to dock at 3 ports over 14 days, seeing its current location v.s. future docking locations)
 
-## E2E example
-![E2E demo](/images/E2E demo.gif)
+## Full demo
+Check the 'E2E demo' file in /images/ folder.
